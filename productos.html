@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="css/estilos.css">
+<style>
+#mensaje-producto{padding:10px;margin:10px 0;display:none;font-weight:bold}
+</style>
+<title>Productos - JAQYU</title>
+</head>
+<body>
+
+<header>
+<h1>Gesti&oacute;n de Productos</h1>
+<nav>
+<ul>
+<li><a href="index.html">Inicio</a></li>
+<li><a href="productos.html">Productos</a></li>
+<li><a href="contacto.html">Contacto</a></li>
+</ul>
+</nav>
+</header>
+
+<main>
+
+<!-- SECCION FORMULARIO DE ALTA/EDICION -->
+<section id="form-producto">
+<h2>Alta / Modificaci&oacute;n de Producto</h2>
+
+<form id="productoForm" action="#" method="post">
+<div class="campo">
+<label for="prod-id">ID Producto:</label>
+<input type="text" id="prod-id" name="id" size="10" maxlength="5" placeholder="Ej: P001" required>
+</div>
+
+<div class="campo">
+<label for="prod-nombre">Nombre:</label>
+<input type="text" id="prod-nombre" name="nombre" size="40" maxlength="50" placeholder="Nombre del tinte" required>
+</div>
+
+<div class="campo">
+<label for="prod-tipo">Tipo:</label>
+<select id="prod-tipo" name="tipo">
+<option value="permanente">Permanente</option>
+<option value="semipermanente">Semi-permanente</option>
+<option value="vegetal">Vegetal</option>
+</select>
+</div>
+
+<div class="campo">
+<label for="prod-precio">Precio (S/):</label>
+<input type="text" id="prod-precio" name="precio" size="10" maxlength="7" placeholder="99.90" required>
+</div>
+
+<fieldset>
+<legend>Disponibilidad</legend>
+<div>
+<input type="radio" id="disp-si" name="disponible" value="si" checked>
+<label for="disp-si">Disponible</label>
+</div>
+<div>
+<input type="radio" id="disp-no" name="disponible" value="no">
+<label for="disp-no">No disponible</label>
+</div>
+</fieldset>
+
+<fieldset>
+<legend>Extras</legend>
+<div>
+<input type="checkbox" id="extra-envio" name="extras" value="envio">
+<label for="extra-envio">Envio gratuito</label>
+</div>
+<div>
+<input type="checkbox" id="extra-garantia" name="extras" value="garantia">
+<label for="extra-garantia">Garant&iacute;a extendida</label>
+</div>
+</fieldset>
+
+<div class="campo">
+<label for="prod-notas">Notas:</label>
+<textarea id="prod-notas" name="notas" rows="4" cols="40" maxlength="200" placeholder="Observaciones..."></textarea>
+</div>
+
+<div id="acciones-form">
+<button type="button" onclick="guardarProducto()" style="background:#27ae60">Guardar Producto</button>
+<button type="button" onclick="limpiarFormulario()" style="background:#7f8c8d">Limpiar</button>
+</div>
+</form>
+
+<div id="mensaje-producto"></div>
+</section>
+
+<!-- SECCION LISTADO DE PRODUCTOS -->
+<section id="lista-productos">
+<h2>Listado de Productos</h2>
+
+<table id="tabla-productos" summary="Tabla de productos registrados con opciones de editar y eliminar">
+<caption>Productos en Cat&aacute;logo</caption>
+<thead>
+<tr>
+<th scope="col">ID</th>
+<th scope="col">Nombre</th>
+<th scope="col">Tipo</th>
+<th scope="col">Precio</th>
+<th scope="col">Disponible</th>
+<th scope="col" colspan="2">Acciones</th>
+</tr>
+</thead>
+<tbody id="cuerpo-tabla">
+<tr>
+<td colspan="7">No hay productos registrados. Agregue uno usando el formulario.</td>
+</tr>
+</tbody>
+</table>
+
+<button type="button" onclick="cargarProductos()" style="background:#2980b9">Actualizar Lista</button>
+</section>
+
+</main>
+
+<footer>
+<address>JAQYU - Calle Principal 123, Ciudad</address>
+<p>&copy; 2025 JAQYU Tintes Profesionales</p>
+</footer>
+
+<noscript>
+<div style="background:#ffcccc;border:2px solid red;padding:15px;margin:20px">
+<p><strong>JavaScript deshabilitado.</strong> El CRUD de productos no funcionar&aacute;.</p>
+</div>
+</noscript>
+
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>

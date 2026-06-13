@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="css/estilos.css">
+<style>
+#mensaje-contacto{padding:10px;margin:10px 0;display:none;font-weight:bold}
+</style>
+<title>Contacto - JAQYU</title>
+</head>
+<body>
+
+<header>
+<h1>Contacto y Mensajes</h1>
+<nav>
+<ul>
+<li><a href="index.html">Inicio</a></li>
+<li><a href="productos.html">Productos</a></li>
+<li><a href="contacto.html">Contacto</a></li>
+</ul>
+</nav>
+</header>
+
+<main>
+
+<!-- SECCION FORMULARIO DE CONTACTO -->
+<section id="form-contacto">
+<h2>Enviar Mensaje</h2>
+
+<form id="contactoForm" action="#" method="post" enctype="multipart/form-data" accept-charset="UTF-8" accept="text/html,application/pdf">
+<div class="campo">
+<label for="cont-nombre">Nombre:</label>
+<input type="text" id="cont-nombre" name="nombre" size="40" maxlength="50" placeholder="Tu nombre" required>
+</div>
+
+<div class="campo">
+<label for="cont-email">Correo:</label>
+<input type="email" id="cont-email" name="email" size="40" maxlength="80" placeholder="tu@correo.com" required>
+</div>
+
+<div class="campo">
+<label for="cont-telefono">Tel&eacute;fono:</label>
+<input type="text" id="cont-telefono" name="telefono" size="15" maxlength="9" placeholder="999888777">
+</div>
+
+<div class="campo">
+<label for="cont-asunto">Asunto:</label>
+<select id="cont-asunto" name="asunto">
+<option value="consulta">Consulta</option>
+<option value="sugerencia">Sugerencia</option>
+<option value="reclamo">Reclamo</option>
+<option value="otro">Otro</option>
+</select>
+</div>
+
+<div class="campo">
+<label for="cont-mensaje">Mensaje:</label>
+<textarea id="cont-mensaje" name="mensaje" rows="6" cols="50" maxlength="500" placeholder="Escriba su mensaje aqu&iacute; (m&aacute;x. 500 caracteres)" required></textarea>
+</div>
+
+<fieldset>
+<legend>Medio de respuesta preferido</legend>
+<div>
+<input type="radio" id="resp-email" name="respuesta" value="email" checked>
+<label for="resp-email">Correo electr&oacute;nico</label>
+</div>
+<div>
+<input type="radio" id="resp-telefono" name="respuesta" value="telefono">
+<label for="resp-telefono">Tel&eacute;fono</label>
+</div>
+</fieldset>
+
+<fieldset>
+<legend>Deseo recibir</legend>
+<div>
+<input type="checkbox" id="news-ofertas" name="suscripcion" value="ofertas">
+<label for="news-ofertas">Ofertas y promociones</label>
+</div>
+<div>
+<input type="checkbox" id="news-novedades" name="suscripcion" value="novedades">
+<label for="news-novedades">Novedades de productos</label>
+</div>
+</fieldset>
+
+<div id="acciones-contacto">
+<button type="button" onclick="enviarMensaje()" style="background:#27ae60">Enviar Mensaje</button>
+<button type="reset" style="background:#7f8c8d">Limpiar Formulario</button>
+</div>
+</form>
+
+<div id="mensaje-contacto"></div>
+</section>
+
+<!-- SECCION LISTADO DE MENSAJES -->
+<section id="lista-mensajes">
+<h2>Bandeja de Mensajes</h2>
+
+<table id="tabla-mensajes" summary="Tabla de mensajes recibidos con opciones de ver, editar y eliminar">
+<caption>Mensajes Recibidos</caption>
+<thead>
+<tr>
+<th scope="col">ID</th>
+<th scope="col">Nombre</th>
+<th scope="col">Correo</th>
+<th scope="col">Asunto</th>
+<th scope="col">Fecha</th>
+<th scope="col" colspan="2">Acciones</th>
+</tr>
+</thead>
+<tbody id="cuerpo-mensajes">
+<tr>
+<td colspan="7">No hay mensajes. Env&iacute;e uno usando el formulario.</td>
+</tr>
+</tbody>
+</table>
+
+<button type="button" onclick="cargarMensajes()" style="background:#2980b9">Actualizar Bandeja</button>
+</section>
+
+<!-- SECCION PARA EDITAR MENSAJE -->
+<section id="editar-mensaje" style="display:none">
+<h2>Editar Mensaje</h2>
+<form id="editarForm" action="#">
+<input type="hidden" id="edit-id">
+<div class="campo">
+<label for="edit-nombre">Nombre:</label>
+<input type="text" id="edit-nombre" name="edit-nombre" size="40" maxlength="50">
+</div>
+<div class="campo">
+<label for="edit-email">Correo:</label>
+<input type="email" id="edit-email" name="edit-email" size="40" maxlength="80">
+</div>
+<div class="campo">
+<label for="edit-asunto">Asunto:</label>
+<select id="edit-asunto" name="edit-asunto">
+<option value="consulta">Consulta</option>
+<option value="sugerencia">Sugerencia</option>
+<option value="reclamo">Reclamo</option>
+<option value="otro">Otro</option>
+</select>
+</div>
+<div class="campo">
+<label for="edit-mensaje">Mensaje:</label>
+<textarea id="edit-mensaje" name="edit-mensaje" rows="6" cols="50" maxlength="500"></textarea>
+</div>
+<button type="button" onclick="guardarEdicionMensaje()" style="background:#e67e22">Guardar Cambios</button>
+<button type="button" onclick="cancelarEdicion()" style="background:#7f8c8d">Cancelar</button>
+</form>
+</section>
+
+</main>
+
+<footer>
+<address>JAQYU - Calle Principal 123, Ciudad</address>
+<p>&copy; 2025 JAQYU Tintes Profesionales</p>
+</footer>
+
+<noscript>
+<div style="background:#ffcccc;border:2px solid red;padding:15px;margin:20px">
+<p><strong>JavaScript deshabilitado.</strong> El formulario no podr&aacute; enviar mensajes.</p>
+</div>
+</noscript>
+
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
