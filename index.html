@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Coca-Cola Experience &bull; Vainilla &bull; Zero &bull; Light</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #CC0000, #990000, #660000);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 48px;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 70% 30%, rgba(255,215,0,0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 30% 70%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: gradientShift 8s ease infinite;
+            background-size: 200% 200%;
+        }
+        .hero-section * { position: relative; z-index: 1; }
+        .hero-section h1 { color: white; font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 16px; }
+        .hero-section p { color: rgba(255,255,255,0.9); text-indent: 0; text-align: center; margin: 0 auto 24px; max-width: 600px; font-size: 1.1rem; }
+        .hero-section .badge { margin-bottom: 16px; }
+
+        .splash-banner {
+            position: relative;
+            min-height: 500px;
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 48px;
+        }
+        .splash-banner img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            border-radius: 24px;
+        }
+        .splash-banner .overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+            border-radius: 24px;
+        }
+        .splash-banner .content {
+            position: relative; z-index: 2;
+            text-align: center; color: white; padding: 40px;
+            max-width: 600px;
+        }
+        .splash-banner .content h1 {
+            color: white;
+            text-shadow: 0 0 30px rgba(204,0,0,0.5);
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+        .bento-item {
+            padding: 32px 24px;
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-align: center;
+            cursor: default;
+        }
+        .bento-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(204,0,0,0.15);
+            border-color: #CC0000;
+        }
+        .bento-item .icono {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .bento-item h3 { color: #CC0000; font-family: 'Impact', 'Arial Black', sans-serif; }
+        .bento-item p { text-indent: 0; text-align: center; font-size: 0.9rem; margin: 0; }
+
+        .cta-banner {
+            background: linear-gradient(135deg, #1A1A1A, #333);
+            padding: 48px 32px;
+            border-radius: 24px;
+            text-align: center;
+            color: white;
+            margin: 48px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(204,0,0,0.2) 0%, transparent 50%);
+        }
+        .cta-banner * { position: relative; z-index: 1; }
+        .cta-banner h2 { color: white; }
+        .cta-banner h2::after { background: linear-gradient(90deg, #FFD700, #CC0000); }
+        .cta-banner p { color: rgba(255,255,255,0.8); text-indent: 0; text-align: center; max-width: 500px; margin: 0 auto 24px; }
+    </style>
+</head>
+<body>
+
+<noscript>
+    <div style="background:#FFD700;padding:16px 24px;text-align:center;font-weight:600;border-bottom:3px solid #CC0000;font-family:Inter,sans-serif;color:#1A1A1A;">
+        Tu navegador tiene JavaScript deshabilitado. Act&iacute;valo para disfrutar la experiencia interactiva completa.
+    </div>
+</noscript>
+
+<header>
+    <span class="badge badge-gold">Est. 1886</span>
+    <h1 class="animado">COCA-COLA</h1>
+    <p class="animado animado-retraso1" style="font-size:1.3rem;font-weight:300;letter-spacing:4px;text-transform:uppercase;">
+        <em>Destapa la felicidad</em>
+    </p>
+    <div style="display:flex;justify-content:center;gap:12px;margin-top:16px;flex-wrap:wrap;">
+        <span class="badge">Vainilla</span>
+        <span class="badge">Zero</span>
+        <span class="badge badge-silver">Light</span>
+    </div>
+</header>
+
+<nav>
+    <a href="index.html" class="boton" style="background:#CC0000;color:white;">Inicio</a>
+    <a href="pages/vainilla.html" class="boton">Vainilla</a>
+    <a href="pages/zero.html" class="boton">Zero</a>
+    <a href="pages/light.html" class="boton">Light</a>
+    <a href="pages/contacto.html" class="boton">Contacto</a>
+    <a href="#tabla-nutricional" class="boton">Nutrici&oacute;n</a>
+    <a href="#formulario-pedido" class="boton">Pedido</a>
+</nav>
+
+<main>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section sin-borde sin-sombra">
+        <span class="badge badge-gold animado">Nuevo</span>
+        <h1 class="animado animado-retraso1">TRES SABORES,<br>UNA <span style="color:#FFD700;">EXPERIENCIA</span></h1>
+        <p class="animado animado-retraso2">
+            <strong>Coca-Cola</strong> ha evolucionado para ofrecer variedades &uacute;nicas como
+            <em>Coca-Cola Vainilla</em>, <em>Coca-Cola Zero</em> y <em>Coca-Cola Light</em>.
+        </p>
+        <div class="animado animado-retraso3" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+            <a href="#productos" class="boton" style="background:#FFD700;color:#1A1A1A;box-shadow:0 4px 15px rgba(255,215,0,0.4);">Explorar productos</a>
+            <a href="#historia" class="boton boton-outline" style="border-color:white;color:white;box-shadow:none;">Conoce la historia</a>
+        </div>
+    </section>
+
+    <!-- SPLASH BANNER - COCA-COLA OVERFLOWING GLASS -->
+    <div class="splash-banner animado">
+        <img src="images/coca-splash-bg.jpg" alt="Vaso de Coca-Cola rebosando sobre fondo negro - edicion limitada" name="splash-coca">
+        <div class="overlay"></div>
+        <div class="content animado animado-retraso1">
+            <span class="badge badge-gold" style="margin-bottom:16px;display:inline-block;">Imagen impactante</span>
+            <h1 style="color:white;">EL SABOR<br>QUE <span style="color:#FFD700;">REBOSA</span></h1>
+            <p style="color:rgba(255,255,255,0.9);text-indent:0;text-align:center;font-size:1.1rem;">Cada gota de Coca-Cola cuenta una historia de tradici&oacute;n y calidad desde 1886.</p>
+        </div>
+    </div>
+
+    <!-- BENTO GRID - PRODUCTOS -->
+    <section id="productos" class="sin-borde sin-sombra" style="background:transparent;backdrop-filter:none;padding:0;">
+        <h2 class="animado">NUESTROS PRODUCTOS</h2>
+        <div class="bento-grid">
+            <div class="bento-item animado animado-retraso1" style="border-top:4px solid #CC0000;">
+                <span class="icono">🥤</span>
+                <h3>Coca-Cola Vainilla</h3>
+                <p>Sabor &uacute;nico con extracto natural de vainilla.</p>
+                <a href="pages/vainilla.html" class="boton" style="margin-top:16px;padding:8px 24px;font-size:0.8rem;">Ver m&aacute;s</a>
+            </div>
+            <div class="bento-item animado animado-retraso2" style="border-top:4px solid #333;">
+                <span class="icono">🖤</span>
+                <h3>Coca-Cola Zero</h3>
+                <p>Cero az&uacute;car, mismo sabor cl&aacute;sico.</p>
+                <a href="pages/zero.html" class="boton" style="margin-top:16px;padding:8px 24px;font-size:0.8rem;">Ver m&aacute;s</a>
+            </div>
+            <div class="bento-item animado animado-retraso3" style="border-top:4px solid #C0C0C0;">
+                <span class="icono">✨</span>
+                <h3>Coca-Cola Light</h3>
+                <p>Ligera, refrescante, baja en calor&iacute;as.</p>
+                <a href="pages/light.html" class="boton" style="margin-top:16px;padding:8px 24px;font-size:0.8rem;">Ver m&aacute;s</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HISTORIA -->
+    <section id="historia">
+        <h2 class="animado">HISTORIA</h2>
+        <p class="letra-capital animado animado-retraso1">
+            <strong>Coca-Cola</strong> fue creada en <strong>1886</strong> por el farmac&eacute;utico
+            <cite>John Pemberton</cite> en Atlanta, Georgia. Originalmente comercializada como un
+            <dfn title="Medicamento patentado del siglo XIX">t&oacute;nico medicinal</dfn>,
+            r&aacute;pidamente se convirti&oacute; en la bebida m&aacute;s famosa del mundo.
+        </p>
+        <p class="animado animado-retraso2">
+            Hoy, <abbr title="Coca-Cola Company">TCCC</abbr> ofrece m&aacute;s de 500 marcas en
+            m&aacute;s de 200 pa&iacute;ses.
+            <acronym title="The Coca-Cola Company">TCCC</acronym> sigue innovando con sabores
+            como <strong>Vainilla</strong>, <strong>Zero</strong> y <strong>Light</strong>.
+        </p>
+        <blockquote class="animado animado-retraso3">
+            &ldquo;Coca-Cola no es solo una bebida, es un s&iacute;mbolo de optimismo y
+            momentos compartidos en todo el mundo.&rdquo;
+            <cite>&mdash; The Coca-Cola Company</cite>
+        </blockquote>
+        <p class="animado animado-retraso4">
+            <ins>Nuevo: Lanzamiento de Coca-Cola Vainilla en lata 355ml</ins><br>
+            <del>Anteriormente solo disponible en botella PET</del>
+        </p>
+        <h5 class="animado animado-retraso4">Legado de calidad desde 1886</h5>
+        <h6 class="animado animado-retraso4">The Coca-Cola Company</h6>
+    </section>
+
+    <!-- CODIGO -->
+    <section>
+        <h2 class="animado">ESPECIFICACIONES T&Eacute;CNICAS</h2>
+        <pre class="animado animado-retraso1"><code>&lt;Producto&gt;
+    &lt;nombre&gt;Coca-Cola Vainilla&lt;/nombre&gt;
+    &lt;codigo&gt;7501055300475&lt;/codigo&gt;
+    &lt;presentacion&gt;355 ml&lt;/presentacion&gt;
+    &lt;calorias&gt;140 kcal&lt;/calorias&gt;
+&lt;/Producto&gt;</code></pre>
+    </section>
+
+    <!-- GALERIA -->
+    <section>
+        <h2 class="animado">GALER&Iacute;A DE PRODUCTOS</h2>
+        <div class="flex-container">
+            <div class="producto-card animado animado-retraso1">
+                <img src="images/coca-vainilla.svg" alt="Lata de Coca-Cola Vainilla color rojo" name="img-vainilla" height="220" width="100" border="0">
+                <h3>Coca-Cola Vainilla</h3>
+                <span class="badge">Nuevo</span>
+            </div>
+            <div class="producto-card animado animado-retraso2">
+                <img src="images/coca-zero.svg" alt="Lata de Coca-Cola Zero color negro" name="img-zero" height="220" width="100" border="0">
+                <h3>Coca-Cola Zero</h3>
+                <span class="badge badge-gold">Sin az&uacute;car</span>
+            </div>
+            <div class="producto-card animado animado-retraso3">
+                <img src="images/coca-light.svg" alt="Lata de Coca-Cola Light color plateado" name="img-light" height="220" width="100" border="0">
+                <h3>Coca-Cola Light</h3>
+                <span class="badge badge-silver">Light</span>
+            </div>
+        </div>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:24px;" class="animado animado-retraso4">
+            <div style="text-align:center;">
+                <img src="images/banner-coca.jpg" alt="Banner promocional Coca-Cola en formato JPG" name="banner-jpg" height="100" width="300" border="1" style="border-radius:8px;">
+                <p style="text-indent:0;text-align:center;font-size:0.8rem;color:#999;">Formato JPG</p>
+            </div>
+            <div style="text-align:center;">
+                <img src="images/logo-animado.gif" alt="Logo animado Coca-Cola en formato GIF" name="logo-gif" height="100" width="100" border="1" style="border-radius:8px;">
+                <p style="text-indent:0;text-align:center;font-size:0.8rem;color:#999;">Formato GIF</p>
+            </div>
+        </div>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:24px;" class="animado animado-retraso4">
+            <div class="producto-card" style="text-align:center;padding:16px;">
+                <img src="images/coca-glass-splash.jpg" alt="Vaso de Coca-Cola con rebosamiento - fotografia real" name="real-glass" height="180" width="180" style="border-radius:12px;object-fit:cover;height:180px;width:180px;">
+                <p style="text-indent:0;text-align:center;font-size:0.85rem;margin-top:8px;">Coca-Cola &mdash; El cl&aacute;sico</p>
+            </div>
+            <div class="producto-card" style="text-align:center;padding:16px;">
+                <img src="images/coca-pouring.jpg" alt="Sirviendo Coca-Cola en un vaso - fotografia real" name="real-pouring" height="180" width="180" style="border-radius:12px;object-fit:cover;height:180px;width:180px;">
+                <p style="text-indent:0;text-align:center;font-size:0.85rem;margin-top:8px;">Sirviendo la felicidad</p>
+            </div>
+            <div class="producto-card" style="text-align:center;padding:16px;">
+                <img src="images/coca-ice-glass.jpg" alt="Vaso de Coca-Cola con hielo - fotografia real" name="real-ice" height="180" width="180" style="border-radius:12px;object-fit:cover;height:180px;width:180px;">
+                <p style="text-indent:0;text-align:center;font-size:0.85rem;margin-top:8px;">Perfectamente helada</p>
+            </div>
+            <div class="producto-card" style="text-align:center;padding:16px;">
+                <img src="images/coca-bottle-glass.jpg" alt="Botella y vaso de Coca-Cola - fotografia real" name="real-bottle" height="180" width="180" style="border-radius:12px;object-fit:cover;height:180px;width:180px;">
+                <p style="text-indent:0;text-align:center;font-size:0.85rem;margin-top:8px;">Botella &amp; vaso</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPA DE IMAGEN -->
+    <section>
+        <h2 class="animado">MAPA INTERACTIVO</h2>
+        <p class="animado animado-retraso1">Haz clic en las &aacute;reas del logo para explorar:</p>
+        <div style="text-align:center;" class="animado animado-retraso2">
+            <img src="images/logo-coca-cola.svg" alt="Logo de Coca-Cola con areas interactivas para navegar entre productos" name="mapa-coca" width="300" height="300" class="img-sombra" usemap="#mapa-coca" style="border-radius:16px;">
+            <map name="mapa-coca">
+                <area shape="rect" coords="50,20,250,100" href="pages/vainilla.html" alt="Ir a pagina de Coca-Cola Vainilla" title="Coca-Cola Vainilla">
+                <area shape="rect" coords="50,100,250,180" href="pages/zero.html" alt="Ir a pagina de Coca-Cola Zero" title="Coca-Cola Zero">
+                <area shape="rect" coords="50,180,250,260" href="pages/light.html" alt="Ir a pagina de Coca-Cola Light" title="Coca-Cola Light">
+                <area shape="circle" coords="150,270,30" nohref="nohref" alt="Area decorativa del logo" title="Logo Coca-Cola">
+            </map>
+        </div>
+    </section>
+
+    <!-- OBJETOS -->
+    <section>
+        <h2 class="animado">MULTIMEDIA</h2>
+        <div style="text-align:center;" class="animado animado-retraso1">
+            <object data="videos/coca-cola-pouring.mp4" classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" height="280" width="480" style="border-radius:12px;border:2px solid #CC0000;max-width:100%;">
+                <param name="src" value="videos/coca-cola-pouring.mp4">
+                <param name="autoplay" value="false">
+                <param name="controller" value="true">
+                <embed src="videos/coca-cola-pouring.mp4" type="video/mp4" height="280" width="480">
+            </object>
+            <p style="text-align:center;text-indent:0;color:#999;font-size:0.85rem;margin-top:8px;">
+                <em>Video promocional &mdash; Sirviendo Coca-Cola</em>
+            </p>
+        </div>
+    </section>
+
+    <!-- TABLA NUTRICIONAL -->
+    <section id="tabla-nutricional">
+        <h2 class="animado">TABLA NUTRICIONAL</h2>
+        <table class="animado animado-retraso1" summary="Tabla comparativa de informacion nutricional de las tres variedades de Coca-Cola (Vainilla, Zero y Light) en presentacion de 355ml">
+            <caption>Comparativa Nutricional &mdash; 355ml</caption>
+            <colgroup>
+                <col style="width:30%;background:rgba(204,0,0,0.03);">
+                <col style="width:23.33%;">
+                <col style="width:23.33%;">
+                <col style="width:23.33%;">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th id="especificacion" scope="col">Especificaci&oacute;n</th>
+                    <th id="vainilla" scope="col">Coca-Cola Vainilla</th>
+                    <th id="zero" scope="col">Coca-Cola Zero</th>
+                    <th id="light" scope="col">Coca-Cola Light</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td headers="especificacion" scope="row">Calor&iacute;as</td>
+                    <td headers="vainilla">140</td>
+                    <td headers="zero"><strong>0</strong></td>
+                    <td headers="light">1</td>
+                </tr>
+                <tr>
+                    <td headers="especificacion" scope="row">Az&uacute;car (g)</td>
+                    <td headers="vainilla">39</td>
+                    <td headers="zero"><strong>0</strong></td>
+                    <td headers="light">0</td>
+                </tr>
+                <tr>
+                    <td headers="especificacion" scope="row">Sodio (mg)</td>
+                    <td headers="vainilla">45</td>
+                    <td headers="zero">40</td>
+                    <td headers="light">40</td>
+                </tr>
+                <tr>
+                    <td headers="especificacion" scope="row">Cafe&iacute;na (mg)</td>
+                    <td headers="vainilla">34</td>
+                    <td headers="zero">34</td>
+                    <td headers="light">34</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" style="text-align:center;font-size:0.85rem;color:var(--coke-gray-400, #999);">* Valores aproximados por presentaci&oacute;n de 355ml</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <h3 style="margin-top:32px;">Disponibilidad por Presentaci&oacute;n</h3>
+        <table class="tabla-estilo2 animado animado-retraso2" summary="Tabla de disponibilidad de productos por tamano de presentacion">
+            <caption>Disponibilidad</caption>
+            <colgroup>
+                <col style="width:25%;">
+                <col style="width:25%;">
+                <col style="width:25%;">
+                <col style="width:25%;">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Lata 355ml</th>
+                    <th scope="col">Botella 600ml</th>
+                    <th scope="col">Botella 2L</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="row">Vainilla</td>
+                    <td colspan="2" style="text-align:center;background:rgba(204,0,0,0.1);font-weight:600;">Disponible</td>
+                    <td style="text-align:center;background:rgba(255,215,0,0.1);">Pronto</td>
+                </tr>
+                <tr>
+                    <td scope="row">Zero</td>
+                    <td style="text-align:center;">Disponible</td>
+                    <td style="text-align:center;">Disponible</td>
+                    <td style="text-align:center;">Disponible</td>
+                </tr>
+                <tr>
+                    <td scope="row">Light</td>
+                    <td rowspan="2" colspan="2" style="text-align:center;background:rgba(192,192,192,0.2);">Existencia limitada</td>
+                    <td style="text-align:center;">Disponible</td>
+                </tr>
+                <tr>
+                    <td scope="row">Vainilla Zero</td>
+                    <td style="text-align:center;background:rgba(255,215,0,0.15);font-weight:600;color:#CC0000;">Nuevo</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" style="text-align:center;font-size:0.85rem;color:var(--coke-gray-400, #999);">Sujeto a disponibilidad de inventario</td>
+                </tr>
+            </tfoot>
+        </table>
+    </section>
+
+    <!-- ENLACES -->
+    <section>
+        <h2 class="animado">ENLACES DE INTER&Eacute;S</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;" class="animado animado-retraso1">
+            <a href="index.html" class="enlace-icono">Inicio del sitio web</a>
+            <a href="mailto:info@coca-cola-experience.com" class="enlace-icono">Correo electr&oacute;nico</a>
+            <a href="ftp://files.coca-cola.com/pub/" class="enlace-externo">Servidor FTP</a>
+            <a href="downloads/catalogo-productos.pdf" class="enlace-descarga">Cat&aacute;logo PDF</a>
+            <a href="https://www.coca-cola.com" target="_blank" class="enlace-externo">Sitio oficial (absoluto)</a>
+            <a href="pages/vainilla.html" class="enlace-icono">P&aacute;gina Vainilla (relativo)</a>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;">
+            <a href="#inicio" class="boton">↑ Ir al inicio</a>
+            <a href="pages/contacto.html" class="boton-verde boton">Cont&aacute;ctanos</a>
+            <a href="#formulario-pedido" class="boton boton-outline" style="border-color:#CC0000;color:#CC0000;box-shadow:none;">Hacer pedido</a>
+        </div>
+    </section>
+
+    <!-- FORMULARIO -->
+    <section id="formulario-pedido">
+        <h2 class="animado">FORMULARIO DE PEDIDO</h2>
+        <form action="procesar-pedido.php" method="post" enctype="multipart/form-data" accept="application/json" class="animado animado-retraso1">
+            <fieldset style="border:2px solid var(--coke-red, #CC0000);border-radius:var(--radius-xl, 16px);padding:var(--space-6, 24px);background:rgba(255,255,255,0.5);">
+            <legend style="font-family:var(--font-display, 'Impact');color:var(--coke-red, #CC0000);padding:0 var(--space-3, 12px);font-size:1.2rem;text-transform:uppercase;">Datos del pedido</legend>
+            <div>
+                <label for="nombre-completo">Nombre Completo</label>
+                <input type="text" id="nombre-completo" name="nombre" value="" size="40" maxlength="50" placeholder="Ingresa tu nombre">
+            </div>
+            <div>
+                <label for="email-pedido">Correo Electr&oacute;nico</label>
+                <input type="email" id="email-pedido" name="email" value="" size="40" maxlength="80" placeholder="correo@ejemplo.com">
+            </div>
+            <div>
+                <label for="telefono-pedido">Tel&eacute;fono</label>
+                <input type="tel" id="telefono-pedido" name="telefono" value="" size="20" maxlength="15" placeholder="+52 55 1234 5678">
+            </div>
+            <div>
+                <label for="producto-select">Producto</label>
+                <select id="producto-select" name="producto">
+                    <option value="vainilla">Coca-Cola Vainilla</option>
+                    <option value="zero">Coca-Cola Zero</option>
+                    <option value="light">Coca-Cola Light</option>
+                </select>
+            </div>
+            <div>
+                <label for="cantidad">Cantidad</label>
+                <input type="number" id="cantidad" name="cantidad" value="1" size="5" maxlength="3" min="1" max="100">
+            </div>
+            <div>
+                <label>Presentaci&oacute;n</label>
+                <label style="display:inline-flex;align-items:center;margin-right:16px;cursor:pointer;">
+                    <input type="radio" name="presentacion" value="lata" checked> Lata 355ml
+                </label>
+                <label style="display:inline-flex;align-items:center;margin-right:16px;cursor:pointer;">
+                    <input type="radio" name="presentacion" value="botella600"> Botella 600ml
+                </label>
+                <label style="display:inline-flex;align-items:center;cursor:pointer;">
+                    <input type="radio" name="presentacion" value="botella2l"> Botella 2L
+                </label>
+            </div>
+            <div>
+                <label>Extras</label>
+                <label style="display:inline-flex;align-items:center;margin-right:16px;cursor:pointer;">
+                    <input type="checkbox" name="extras[]" value="hielo" checked> Hielo
+                </label>
+                <label style="display:inline-flex;align-items:center;margin-right:16px;cursor:pointer;">
+                    <input type="checkbox" name="extras[]" value="limon"> Lim&oacute;n
+                </label>
+                <label style="display:inline-flex;align-items:center;cursor:pointer;">
+                    <input type="checkbox" name="extras[]" value="regalo"> Envoltura de regalo
+                </label>
+            </div>
+            <div>
+                <label for="comentarios">Comentarios</label>
+                <textarea id="comentarios" name="comentarios" rows="4" cols="50" maxlength="500" placeholder="Escribe aqu&iacute; tus comentarios..."></textarea>
+            </div>
+            <div>
+                <label for="archivo">Subir referencia</label>
+                <input type="file" id="archivo" name="archivo" accept="image/*,.pdf" style="padding:8px;border:2px dashed #ccc;border-radius:8px;background:#fafafa;">
+            </div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                <input type="submit" value="Enviar pedido">
+                <input type="reset" value="Limpiar">
+                <input type="button" value="Ver carrito" onclick="alert(mostrarProductos())">
+            </div>
+            </fieldset>
+        </form>
+    </section>
+
+    <!-- CTA BANNER -->
+    <hr style="border:none;border-top:2px solid var(--coke-red, #CC0000);margin:var(--space-12, 48px) 0;opacity:0.3;">
+    <div class="cta-banner animado">
+        <h2>&iquest;LISTO PARA DISFRUTAR?</h2>
+        <p>Descubre cu&aacute;l de nuestras tres variedades es tu favorita. &iexcl;La experiencia Coca-Cola te espera!</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+            <a href="pages/vainilla.html" class="boton" style="background:#CC0000;">Vainilla</a>
+            <a href="pages/zero.html" class="boton" style="background:#333;">Zero</a>
+            <a href="pages/light.html" class="boton" style="background:#C0C0C0;color:#333;">Light</a>
+        </div>
+    </div>
+
+</main>
+
+<footer>
+    <div style="max-width:600px;margin:0 auto;">
+        <h3 style="color:#FFD700;font-family:'Impact','Arial Black',sans-serif;margin-bottom:16px;">COCA-COLA EXPERIENCE</h3>
+        <p style="color:#999;text-indent:0;text-align:center;">
+            &copy; 2026 Coca-Cola Experience &mdash; Todos los derechos reservados
+        </p>
+        <div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:16px;">
+            <a href="index.html">Inicio</a>
+            <a href="mailto:info@coca-cola-experience.com">Contacto</a>
+            <a href="ftp://files.coca-cola.com/pub/">FTP</a>
+            <a href="https://www.coca-cola.com" target="_blank">Sitio oficial</a>
+        </div>
+        <p style="color:#666;text-indent:0;text-align:center;font-size:0.8rem;margin-top:12px;">
+            <em>&ldquo;Destapa la felicidad&rdquo;</em>
+        </p>
+    </div>
+</footer>
+
+<script type="text/javascript" src="js/scripts.js"></script>
+<script type="text/javascript">
+    window.onload = function() {
+        init();
+        console.log("=== COCA-COLA EXPERIENCE - UI/UX PRO MAX ===");
+        var x = 15, y = 4;
+        console.log("Asignacion:", x);
+        console.log("Incremento:", ++x);
+        console.log("Decremento:", --y);
+        console.log("AND:", (x > 10 && y < 5));
+        console.log("OR:", (x < 10 || y > 3));
+        console.log("Negacion:", !(x === y));
+        console.log("Suma:", x + y);
+        console.log("Multiplicacion:", x * y);
+        console.log("Mayor que:", x > y);
+        for (var i in productos) { console.log("Producto:", productos[i]); }
+        var pedido = procesarPedido("Vainilla", 5);
+        console.log("Pedido: $" + (pedido > 0 ? pedido.toFixed(2) : "Error"));
+    };
+    function mostrarSaludo() { alert("¡Bienvenido a Coca-Cola Experience!\n\n" + mostrarProductos()); }
+</script>
+
+</body>
+</html>
