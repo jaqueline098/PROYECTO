@@ -1,0 +1,80 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>
+endobj
+
+4 0 obj
+<< /Length 525 >>
+stream
+BT
+/F1 24 Tf
+50 720 Td
+(JAQYU - Catalogo de Tintes) Tj
+/F2 14 Tf
+50 680 Td
+(Tonos disponibles:) Tj
+/F1 12 Tf
+50 650 Td
+(. Dorado - #FFD700) Tj
+50 630 Td
+(. Plata - #C0C0C0) Tj
+50 610 Td
+(. Blanco - #FFFFFF) Tj
+50 590 Td
+(. Azul - #0000FF) Tj
+50 570 Td
+(. Rojo - #FF0000) Tj
+50 550 Td
+(. Castano - #8B4513) Tj
+50 530 Td
+(. Rubio - #FAF0BE) Tj
+50 510 Td
+(. Violeta - #8B008B) Tj
+50 490 Td
+(. Verde - #008000) Tj
+50 470 Td
+(. Negro - #000000) Tj
+50 450 Td
+(. Naranja - #FF8C00) Tj
+50 430 Td
+(. Rosa - #FF69B4) Tj
+/F2 10 Tf
+50 380 Td
+(Contacto: info@jaqyu.com | Tel: +51 999 888 777) Tj
+50 360 Td
+(Visitanos en: www.jaqyu.com) Tj
+ET
+endstream
+endobj
+
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000266 00000 n 
+0000000858 00000 n 
+0000000929 00000 n 
+
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+998
+%%EOF

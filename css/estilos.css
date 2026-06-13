@@ -1,0 +1,544 @@
+/* === ESTILOS GENERALES JAQYU === */
+/* Tema inspirado en paletas modernas 21st.dev */
+
+:root {
+  --primary: #7c1a1a;
+  --primary-light: #a52a2a;
+  --primary-dark: #5c0e0e;
+  --accent: #c0392b;
+  --bg: #f8f6f3;
+  --bg-card: #ffffff;
+  --text: #2d2d2d;
+  --text-light: #666666;
+  --border: #e0d6cc;
+  --success: #27ae60;
+  --warning: #e67e22;
+  --error: #c0392b;
+  --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-serif: Georgia, 'Times New Roman', serif;
+  --font-mono: 'Courier New', Consolas, monospace;
+  --shadow: 0 4px 20px rgba(0,0,0,0.08);
+  --radius: 12px;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  font-variant: normal;
+  font: 400 16px/1.7 var(--font-sans);
+  color: var(--text);
+  background: var(--bg);
+  margin: 0;
+  padding: 0;
+}
+
+/* --- LETRA CAPITAL --- */
+p::first-letter {
+  font-size: 2.4em;
+  font-weight: bold;
+  color: var(--primary);
+  float: left;
+  margin-right: 6px;
+  line-height: 1;
+}
+
+/* --- TIPOGRAFIA ENCABEZADOS --- */
+h1, h2, h3 {
+  font-weight: 700;
+  font-variant: small-caps;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  word-spacing: 4px;
+}
+
+h1 {
+  font-size: 2.2em;
+  text-align: center;
+  font-family: var(--font-serif);
+}
+
+h2 {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  vertical-align: baseline;
+  text-indent: 0;
+  font-size: 1.5em;
+  margin-top: 0;
+}
+
+h3 {
+  color: var(--text-light);
+  text-decoration: none;
+  font-style: italic;
+  font-variant: normal;
+  text-transform: none;
+  letter-spacing: 0;
+  word-spacing: 0;
+  font-size: 1.2em;
+}
+
+/* --- ESTILOS GENERALES DE TEXTO --- */
+p {
+  text-align: justify;
+  line-height: 1.8;
+  white-space: normal;
+  color: var(--text);
+}
+
+pre {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 20px;
+  overflow: auto;
+  font-size: 14px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+code {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  background: #f1f1f1;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+pre code {
+  color: #2ecc71;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+blockquote {
+  border-left: 4px solid var(--primary);
+  padding: 15px 20px;
+  margin: 20px 0;
+  background: #faf5f0;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-style: italic;
+}
+
+cite {
+  display: block;
+  text-align: right;
+  color: var(--text-light);
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+/* --- LISTAS --- */
+ul {
+  list-style-type: square;
+  list-style-image: url('../img/icono-enlace.png');
+  list-style: square inside;
+  padding-left: 20px;
+}
+
+ol {
+  list-style-type: lower-roman;
+  list-style: lower-roman outside;
+  padding-left: 30px;
+}
+
+dl dt {
+  font-weight: bold;
+  color: var(--primary);
+  margin-top: 15px;
+}
+
+dl dd {
+  margin-bottom: 12px;
+  font-style: italic;
+  margin-left: 30px;
+  color: var(--text-light);
+}
+
+/* --- TABLAS --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  caption-side: bottom;
+  margin: 20px 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+caption {
+  font-style: italic;
+  font-weight: bold;
+  padding: 12px;
+  color: var(--primary);
+  font-size: 0.95em;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 12px 15px;
+  text-align: left;
+}
+
+thead th {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* COLOR DIFERENTE POR FILA (ZEBRA) */
+tbody tr:nth-child(odd) {
+  background: #fdf8f4;
+}
+
+tbody tr:nth-child(even) {
+  background: #ffffff;
+}
+
+tbody tr:hover {
+  background: #f5ebe0;
+  transition: background 0.2s;
+}
+
+/* DIFERENTE ANCHO DE LINEA */
+thead th {
+  border-width: 2px;
+}
+
+tbody td {
+  border-width: 1px;
+}
+
+tfoot td {
+  border-width: 2px;
+  font-weight: bold;
+}
+
+/* --- FORMULARIOS --- */
+.campo {
+  margin-bottom: 18px;
+}
+
+.campo label {
+  display: inline-block;
+  width: 180px;
+  text-align: right;
+  margin-right: 12px;
+  vertical-align: top;
+  font-weight: 600;
+  color: var(--text);
+  padding-top: 8px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="hidden"],
+select,
+textarea {
+  width: 300px;
+  padding: 10px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: var(--font-sans);
+  background: #fff;
+  transition: all 0.25s;
+}
+
+/* FOCUS: RESALTA CAMPO ACTIVO */
+input:focus,
+select:focus,
+textarea:focus {
+  background: #fffdf7;
+  border: 2px solid var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(124,26,26,0.15);
+}
+
+fieldset {
+  border: 1.5px solid var(--border);
+  padding: 18px 20px;
+  margin: 18px 0;
+  border-radius: var(--radius);
+  background: #fdfaf7;
+}
+
+legend {
+  font-weight: bold;
+  color: var(--primary);
+  font-variant: small-caps;
+  padding: 0 10px;
+  font-size: 1.1em;
+}
+
+/* --- BOTONES Y ENLACES COMO BOTONES --- */
+button {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border: none;
+  color: #fff;
+  padding: 12px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 8px 5px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(124,26,26,0.2);
+  letter-spacing: 0.5px;
+}
+
+button:hover {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(124,26,26,0.3);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* ENLACE QUE PARECE BOTON */
+a.boton-enlace {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: #fff;
+  padding: 10px 22px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  margin: 4px 0;
+  transition: all 0.25s;
+  box-shadow: 0 2px 6px rgba(124,26,26,0.15);
+  font-size: 14px;
+}
+
+a.boton-enlace:hover {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  transform: translateY(-1px);
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(124,26,26,0.25);
+}
+
+/* --- ENLACES --- */
+a:link {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+  background: transparent;
+  transition: color 0.2s;
+}
+
+a:visited {
+  color: #7c3aed;
+}
+
+a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+  background-image: url('../img/icono-enlace.png');
+  background-repeat: no-repeat;
+  background-position: right center;
+  padding-right: 22px;
+  background-size: 16px;
+}
+
+a:active {
+  color: var(--error);
+  background: #fef2f2;
+}
+
+/* --- IMAGENES --- */
+img {
+  border: 2px solid var(--border);
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+figure {
+  margin: 20px 0;
+  text-align: center;
+}
+
+figcaption {
+  font-style: italic;
+  color: var(--text-light);
+  margin-top: 8px;
+  font-size: 0.9em;
+}
+
+/* --- HEADER Y FOOTER --- */
+header {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary), var(--primary-light));
+  color: #fff;
+  padding: 20px 20px 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+header h1 {
+  margin: 0 0 10px;
+  color: #fff;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 2em;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+header nav ul {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+header nav ul li {
+  display: inline;
+  margin: 0 20px;
+}
+
+header nav ul li a:link,
+header nav ul li a:visited {
+  color: #fff;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+header nav ul li a:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.15);
+  text-decoration: none;
+  padding-right: 10px;
+}
+
+header nav ul li a:active {
+  color: #ffcccc;
+  background: rgba(255,255,255,0.25);
+}
+
+footer {
+  background: linear-gradient(135deg, var(--primary-dark), #1a1a2e);
+  color: #ddd;
+  text-align: center;
+  padding: 25px;
+  margin-top: 40px;
+}
+
+footer p {
+  color: #aaa;
+  text-align: center;
+  margin: 5px 0;
+}
+
+footer address {
+  font-style: normal;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* --- SECCIONES --- */
+section {
+  background: var(--bg-card);
+  margin: 25px auto;
+  padding: 30px 35px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 1100px;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- OBJETOS Y EMBED --- */
+object, embed {
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  margin: 15px 0;
+  box-shadow: var(--shadow);
+}
+
+/* --- MENSAJES DE VALIDACION --- */
+.error {
+  color: var(--error);
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.exito {
+  color: var(--success);
+  font-weight: bold;
+}
+
+/* --- TABLA DE CRUD --- */
+#tabla-productos td:last-child,
+#tabla-productos td:nth-last-child(2) {
+  text-align: center;
+  white-space: nowrap;
+}
+
+#acciones-form,
+#acciones-contacto {
+  margin-left: 192px;
+}
+
+/* --- EDICION DE MENSAJE --- */
+#editar-mensaje {
+  border-left: 4px solid var(--warning);
+  background: #fffbf5;
+}
+
+/* --- MENSAJES EMERGENTES --- */
+#mensaje-producto,
+#mensaje-contacto {
+  padding: 12px 18px;
+  margin: 12px 0;
+  display: none;
+  font-weight: bold;
+  border-radius: 8px;
+  border-left: 4px solid;
+}
+
+#demo-output {
+  margin-top: 15px;
+  padding: 15px 20px;
+  background: #f8f8f8;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  min-height: 60px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* --- NOSCRIPT --- */
+noscript div {
+  background: #fef2f2;
+  border: 2px solid var(--error);
+  border-radius: var(--radius);
+  padding: 15px 20px;
+  margin: 20px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
